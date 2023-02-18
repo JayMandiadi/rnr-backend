@@ -20,7 +20,9 @@ class UserAssetsApi(ReadOnlyModelViewSet):
 
     @action(methods=["GET"], detail=False)
     def list(self, request, *args, **kwargs):
-        serializer = self.get_serializer(self.queryset, many=True)
+        serializer = self.get_serializer(
+            self.queryset.filter(owner=request.user.id), many=True
+        )
         # serializer.is_valid(raise_exception=True)
 
         return Response(
