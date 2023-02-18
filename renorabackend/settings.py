@@ -35,7 +35,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://rnr-backend-production.up.railway.app", "127.0.0.1"]
 
 AUTH_USER_MODEL = "web3assets.User"
 
@@ -78,6 +78,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -87,6 +88,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "renorabackend.urls"
+
+CSRF_TRUSTED_ORIGINS = ["https://rnr-backend-production.up.railway.app"]
 
 TEMPLATES = [
     {
@@ -152,7 +155,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
