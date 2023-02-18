@@ -35,7 +35,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = ["https://rnr-backend-production.up.railway.app", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 AUTH_USER_MODEL = "web3assets.User"
 
