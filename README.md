@@ -1,4 +1,4 @@
-## Guide
+# Guide
 
 ### Make Migrations
 
@@ -10,11 +10,11 @@
 - this is to populate the tables of your newly created database
 - run `python manage.py migrate`
 
-## Create superuser
+### Create superuser
 
 - run `python manage.py createsuperuser`
 
-## Run locally
+### Run locally
 
 - from the terminal
   - run `python manage.py runserver`
