@@ -1,3 +1,5 @@
+# flake8: noqa
+
 """renorabackend URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -20,10 +22,15 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from web3assets.views import UserInfoApi
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("assets/", include("web3assets.urls")),
+    path(
+        "users/me/", UserInfoApi.as_view({"get": "retrieve"}), name="get_user_details"
+    ),
     path("login/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]
