@@ -4,7 +4,6 @@ from .models import AssetInstance, User
 
 class AssetInstanceSerializer(serializers.ModelSerializer):
     owner = serializers.PrimaryKeyRelatedField(read_only=True)
-
     asset = serializers.PrimaryKeyRelatedField(read_only=True)
     asset_name = serializers.CharField(source="asset.name")
 
